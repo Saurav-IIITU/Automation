@@ -1,87 +1,83 @@
-# WhatsApp Profile Picture Updater
+# WhatsApp Automation Scripts
 
-This project automates the process of updating your WhatsApp profile picture with a random cat image fetched from an API. It uses Selenium for browser automation and The Cat API for fetching cat images.
+This repository contains two Python scripts to automate tasks on WhatsApp Web using Selenium:
+
+1. **Profile Picture Automation**: Changes the WhatsApp profile picture to a downloaded cat image from The Cat API.
+2. **Message Sending Automation**: Sends an automated message to a specified contact.
 
 ## Features
-- Automates login to WhatsApp Web.
-- Fetches a random cat image from The Cat API.
-- Updates your WhatsApp profile picture with the fetched cat image.
 
-## Prerequisites
+### Profile Picture Automation
+- Automatically downloads a random cat image from The Cat API.
+- Updates the WhatsApp profile picture with the downloaded image.
 
-1. **Python**: Make sure Python 3.7 or higher is installed on your system.
-2. **Google Chrome**: Install the latest version of Google Chrome.
-3. **ChromeDriver**: ChromeDriver must be compatible with your Chrome version (managed automatically by `webdriver-manager`).
-4. **Environment Variable**: Set up your API key for The Cat API as an environment variable:
-   - On Windows (Command Prompt):
-     ```bash
-     set CAT_API_KEY=your_api_key
-     ```
-   - On Linux/Mac (Terminal):
-     ```bash
-     export CAT_API_KEY=your_api_key
-     ```
+### Message Sending Automation
+- Automates sending messages to specific WhatsApp contacts.
+- Allows customization of the contact name and message content.
 
-## Installation
+## Requirements
+- Python 3.7 or higher
+- Google Chrome browser
+- ChromeDriver (managed automatically via `webdriver_manager`)
 
-1. Clone the repository:
+## Setup
+
+1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/whatsapp-profile-updater.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd whatsapp-profile-updater
-   ```
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
+   git clone https://github.com/your-repository/whatsapp-automation-scripts.git
+   cd whatsapp-automation-scripts
    ```
 
-## Usage
-
-1. Set up the `CAT_API_KEY` environment variable as described above.
-2. Run the script:
+2. **Install Dependencies**
+   Install the required Python packages:
    ```bash
-   python whatsapp_profile_updater.py
+   pip install selenium webdriver-manager requests
    ```
-3. Follow the on-screen instructions to scan the QR code and log in to WhatsApp Web.
-4. The script will automatically fetch a random cat image and update your profile picture.
 
-## Directory Structure
+3. **Run the Scripts**
 
-```plaintext
-whatsapp-profile-updater/
-├── dependency/          # Stores browser user data
-├── whatsapp_profile_updater.py  # Main script
-├── requirements.txt     # Python dependencies
-├── README.md            # Project documentation
+### Profile Picture Automation
+
+- Update the API key in the script:
+  ```python
+  api_key = "your_api_key"  # Replace with your The Cat API key
+  ```
+- Execute the script:
+  ```bash
+  python profile_picture_automation.py
+  ```
+- Scan the QR code displayed in the browser to log in to your WhatsApp account.
+
+### Message Sending Automation
+
+- Modify the `contact_name` and `message` variables in the script with the desired values:
+  ```python
+  contact_name = "John Doe"  # Replace with your contact's name
+  message = "Hello, this is an automated message."  # Replace with your message
+  ```
+- Execute the script:
+  ```bash
+  python message_sending_automation.py
+  ```
+
+## Example Usage
+
+### Profile Picture Automation
+Automatically change your WhatsApp profile picture to a random cat image:
+```python
+api_key = "your_api_key"  # Replace with your The Cat API key
 ```
 
-## Dependencies
-The project requires the following Python libraries:
-
-- `selenium`
-- `webdriver-manager`
-- `requests`
-
-These are listed in the `requirements.txt` file and can be installed with:
-```bash
-pip install -r requirements.txt
+### Message Sending Automation
+Send a message to a contact:
+```python
+contact_name = "John Doe"  # Replace with your contact's name
+message = "Hello, this is an automated message."  # Replace with your message
 ```
 
 ## Notes
+- Ensure that the contact name matches the display name on WhatsApp.
+- Keep the `whatsapp_user_data` directory for session persistence to avoid repeated QR code scans.
 
-- Ensure you log in to WhatsApp Web within the time limit provided by the script.
-- The script will create a `dependency` folder in the project directory to store browser user data.
-
-## Contributing
-Contributions are welcome! Feel free to submit a pull request or open an issue if you find a bug or have a suggestion for improvement.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Acknowledgments
-- [Selenium](https://www.selenium.dev/)
-- [The Cat API](https://thecatapi.com/)
-- [WebDriver Manager](https://pypi.org/project/webdriver-manager/)
-
+## Disclaimer
+This project is for educational purposes only. Use responsibly and ensure you comply with WhatsApp's terms of service.
